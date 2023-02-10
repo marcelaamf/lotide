@@ -9,9 +9,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const tail = function(array) {
-  for (let i = 0; i <= array.length; i++) {
     return array.slice(1);
-  }
 };
 
 const test1 = ["Yo Yo"];
