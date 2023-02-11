@@ -10,6 +10,7 @@ const assertEqual = function(actual, expected) {
 // It's okay for eqArrays to not return true for nested arrays or arrays of objects that are identical.
 //takes two arrays and compare perfect match. returns boolean
 
+
 const eqArrays = function(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
@@ -29,4 +30,3 @@ console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
 console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
 
 console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true));
-

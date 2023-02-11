@@ -3,26 +3,23 @@ let emojiPass = String.fromCodePoint(0x1F603);
 let emojiNotPass = String.fromCodePoint(0x1F621);
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
-     console.log(`${emojiPass} Assertion Passed: ${actual} === ${expected}`);
+    console.log(`${emojiPass} Assertion Passed: ${actual} === ${expected}`);
+  
   } else {
-     console.log(`${emojiNotPass} Assertion Failed: ${actual} !=== ${expected}`);
-  } return actual === expected;
+    console.log(`${emojiNotPass} Assertion Failed: ${actual} !=== ${expected}`);
+  
+  }
 };
 //EQ_ARRAYS 
 const eqArrays = function(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
   }
-  let assertionPass = true;
-  for (let i = 0; i < array1.length-1; i++) {
-    if (array1[i] === array2[i]) {
-      console.log(`${emojiPass} Assertion Passed: ${actual} === ${expected}`);  
-      } else if (array1[i] !== array2[i]) {
-      console.log(`${emojiNotPass} Assertion Failed: ${actual} !=== ${expected}`);
-      assertionPass = false;
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
     }
-  }
-  return assertionPass;
+  } return true;
 };
 //EQ_OBJECTS
 const eqObjects = function(obj1, obj2) {
@@ -54,5 +51,5 @@ const anotherShirtObject= { size: "medium", color: "red" };
 console.log("test eqObj: " + eqObjects(shirtObject , anotherShirtObject)); // => true
 
 const longSleeveShirtObject= { size: "medium", color: "red", sleeveLength: "long" };
-console.log("test assrtEq and eqObj: " + assertEqual(eqObjects(shirtObject , longSleeveShirtObject), false)); // => false
-console.log("test assrtEq and eqObj: " + assertEqual(eqObjects(shirtObject , longSleeveShirtObject), true));
+assertEqual(eqObjects(shirtObject , longSleeveShirtObject), false); // => false
+assertEqual(eqObjects(shirtObject , longSleeveShirtObject), true);

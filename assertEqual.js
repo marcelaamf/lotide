@@ -2,13 +2,16 @@ let emojiPass = String.fromCodePoint(0x1F603);
 let emojiNotPass = String.fromCodePoint(0x1F621);
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
-    return emojiPass + "Assertion Passed: " + actual + " === " + expected;
+    console.log(`${emojiPass} Assertion Passed: ${actual} === ${expected}`);
+  return;
   } else {
-    return emojiNotPass + "Assertion Failed: " + actual + " !=== " + expected;
+    console.log(`${emojiNotPass} Assertion Failed: ${actual} !=== ${expected}`);
+  return;
   }
 };
-console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
-console.log(assertEqual(1, 1));
-console.log(assertEqual(1, 3));
-console.log(assertEqual("vai Flamengo", "vai Flamengo"));
+
+assertEqual("Lighthouse Labs", "Bootcamp");
+assertEqual(1, 1);
+assertEqual(1, 3);
+assertEqual("vai Flamengo", "vai Flamengo");
 
