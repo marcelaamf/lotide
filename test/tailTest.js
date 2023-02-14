@@ -1,18 +1,23 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const tail = require('../tail');
 
+describe("#tail", () => { 
+  it("should return [] when array has only one element", () => {
+    assert.deepEqual(tail(["Yo Yo"]), [])
+  });
 
-const test1 = ["Yo Yo"];
-console.log(tail(test1)); // return empty array
+  it("should return [] when array is empty", () => {
+    assert.deepEqual(tail([]), [])
+  });
 
-const test2 = [];
-console.log(tail(test2)); // return empty array
-
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-console.log(tail(words));
-assertEqual(words.length, 3); // original array should still have 3 elements!
-
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+  it("original array should keep the length. return 3 element when passed 3 elements", () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    let newarray = tail(words);
+    assert.deepEqual(words.length, 3)
+  });
+  it("ensure first element is 'Lighthouse'", () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    let newarray = tail(words);
+    assert.deepEqual(newarray[0], 'Lighthouse')
+  });
+});
